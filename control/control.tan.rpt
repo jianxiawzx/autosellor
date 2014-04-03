@@ -1,0 +1,710 @@
+Classic Timing Analyzer report for control
+Tue Mar 18 18:16:29 2014
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                         ;
++------------------------------+-------+---------------+----------------------------------+----------------+---------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From           ; To            ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------+---------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 14.237 ns                        ; coin1          ; neededtemp[2] ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 8.473 ns                         ; needed[1]~reg0 ; needed[1]     ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -2.285 ns                        ; price4         ; total[3]      ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 117.62 MHz ( period = 8.502 ns ) ; neededtemp[1]  ; neededtemp[2] ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                ;               ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------+---------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP1C3T144A8        ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; -40                ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 125                ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                              ;
++-----------------------------------------+-----------------------------------------------------+------------------+------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From             ; To               ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------+------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 117.62 MHz ( period = 8.502 ns )                    ; neededtemp[1]    ; neededtemp[2]    ; clk        ; clk      ; None                        ; None                      ; 8.241 ns                ;
+; N/A                                     ; 123.27 MHz ( period = 8.112 ns )                    ; neededtemp[3]    ; neededtemp[2]    ; clk        ; clk      ; None                        ; None                      ; 7.851 ns                ;
+; N/A                                     ; 124.80 MHz ( period = 8.013 ns )                    ; neededtemp[2]    ; neededtemp[2]    ; clk        ; clk      ; None                        ; None                      ; 7.752 ns                ;
+; N/A                                     ; 126.29 MHz ( period = 7.918 ns )                    ; neededtemp[0]    ; neededtemp[2]    ; clk        ; clk      ; None                        ; None                      ; 7.657 ns                ;
+; N/A                                     ; 126.45 MHz ( period = 7.908 ns )                    ; neededtemp[1]    ; neededtemp[1]    ; clk        ; clk      ; None                        ; None                      ; 7.647 ns                ;
+; N/A                                     ; 126.90 MHz ( period = 7.880 ns )                    ; neededtemp[1]    ; neededtemp[0]    ; clk        ; clk      ; None                        ; None                      ; 7.619 ns                ;
+; N/A                                     ; 127.73 MHz ( period = 7.829 ns )                    ; neededtemp[0]    ; neededtemp[3]    ; clk        ; clk      ; None                        ; None                      ; 7.568 ns                ;
+; N/A                                     ; 128.35 MHz ( period = 7.791 ns )                    ; neededtemp[1]    ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 7.569 ns                ;
+; N/A                                     ; 128.47 MHz ( period = 7.784 ns )                    ; neededtemp[1]    ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 7.523 ns                ;
+; N/A                                     ; 132.07 MHz ( period = 7.572 ns )                    ; neededtemp[1]    ; current_state.s1 ; clk        ; clk      ; None                        ; None                      ; 7.350 ns                ;
+; N/A                                     ; 133.14 MHz ( period = 7.511 ns )                    ; neededtemp[1]    ; needed[1]~reg0   ; clk        ; clk      ; None                        ; None                      ; 7.250 ns                ;
+; N/A                                     ; 134.79 MHz ( period = 7.419 ns )                    ; neededtemp[2]    ; neededtemp[1]    ; clk        ; clk      ; None                        ; None                      ; 7.158 ns                ;
+; N/A                                     ; 135.30 MHz ( period = 7.391 ns )                    ; neededtemp[2]    ; neededtemp[0]    ; clk        ; clk      ; None                        ; None                      ; 7.130 ns                ;
+; N/A                                     ; 136.95 MHz ( period = 7.302 ns )                    ; neededtemp[2]    ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 7.080 ns                ;
+; N/A                                     ; 137.08 MHz ( period = 7.295 ns )                    ; neededtemp[2]    ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 7.034 ns                ;
+; N/A                                     ; 137.32 MHz ( period = 7.282 ns )                    ; neededtemp[1]    ; needed[2]~reg0   ; clk        ; clk      ; None                        ; None                      ; 7.060 ns                ;
+; N/A                                     ; 138.31 MHz ( period = 7.230 ns )                    ; neededtemp[1]    ; needed[0]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.969 ns                ;
+; N/A                                     ; 140.11 MHz ( period = 7.137 ns )                    ; neededtemp[3]    ; neededtemp[1]    ; clk        ; clk      ; None                        ; None                      ; 6.876 ns                ;
+; N/A                                     ; 140.23 MHz ( period = 7.131 ns )                    ; neededtemp[1]    ; neededtemp[3]    ; clk        ; clk      ; None                        ; None                      ; 6.870 ns                ;
+; N/A                                     ; 140.67 MHz ( period = 7.109 ns )                    ; neededtemp[3]    ; neededtemp[0]    ; clk        ; clk      ; None                        ; None                      ; 6.848 ns                ;
+; N/A                                     ; 141.18 MHz ( period = 7.083 ns )                    ; neededtemp[2]    ; current_state.s1 ; clk        ; clk      ; None                        ; None                      ; 6.861 ns                ;
+; N/A                                     ; 141.58 MHz ( period = 7.063 ns )                    ; paidtemp[3]      ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.841 ns                ;
+; N/A                                     ; 141.58 MHz ( period = 7.063 ns )                    ; paidtemp[3]      ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.841 ns                ;
+; N/A                                     ; 141.58 MHz ( period = 7.063 ns )                    ; paidtemp[3]      ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.841 ns                ;
+; N/A                                     ; 141.58 MHz ( period = 7.063 ns )                    ; paidtemp[3]      ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.841 ns                ;
+; N/A                                     ; 142.41 MHz ( period = 7.022 ns )                    ; neededtemp[2]    ; needed[1]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.761 ns                ;
+; N/A                                     ; 142.45 MHz ( period = 7.020 ns )                    ; neededtemp[3]    ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 6.798 ns                ;
+; N/A                                     ; 142.59 MHz ( period = 7.013 ns )                    ; neededtemp[3]    ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 6.752 ns                ;
+; N/A                                     ; 142.88 MHz ( period = 6.999 ns )                    ; neededtemp[2]    ; neededtemp[3]    ; clk        ; clk      ; None                        ; None                      ; 6.738 ns                ;
+; N/A                                     ; 145.10 MHz ( period = 6.892 ns )                    ; neededtemp[3]    ; needed[2]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.670 ns                ;
+; N/A                                     ; 146.31 MHz ( period = 6.835 ns )                    ; paidtemp[3]      ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 6.574 ns                ;
+; N/A                                     ; 146.41 MHz ( period = 6.830 ns )                    ; paidtemp[2]      ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.608 ns                ;
+; N/A                                     ; 146.41 MHz ( period = 6.830 ns )                    ; paidtemp[2]      ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.608 ns                ;
+; N/A                                     ; 146.41 MHz ( period = 6.830 ns )                    ; paidtemp[2]      ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.608 ns                ;
+; N/A                                     ; 146.41 MHz ( period = 6.830 ns )                    ; paidtemp[2]      ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.608 ns                ;
+; N/A                                     ; 146.65 MHz ( period = 6.819 ns )                    ; current_state.s3 ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 6.519 ns                ;
+; N/A                                     ; 147.04 MHz ( period = 6.801 ns )                    ; neededtemp[3]    ; current_state.s1 ; clk        ; clk      ; None                        ; None                      ; 6.579 ns                ;
+; N/A                                     ; 147.21 MHz ( period = 6.793 ns )                    ; neededtemp[2]    ; needed[2]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.571 ns                ;
+; N/A                                     ; 148.35 MHz ( period = 6.741 ns )                    ; neededtemp[2]    ; needed[0]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.480 ns                ;
+; N/A                                     ; 148.37 MHz ( period = 6.740 ns )                    ; neededtemp[3]    ; needed[1]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.479 ns                ;
+; N/A                                     ; 149.21 MHz ( period = 6.702 ns )                    ; neededtemp[0]    ; neededtemp[1]    ; clk        ; clk      ; None                        ; None                      ; 6.441 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; neededtemp[0]    ; needed[2]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.476 ns                ;
+; N/A                                     ; 149.84 MHz ( period = 6.674 ns )                    ; neededtemp[0]    ; neededtemp[0]    ; clk        ; clk      ; None                        ; None                      ; 6.413 ns                ;
+; N/A                                     ; 149.90 MHz ( period = 6.671 ns )                    ; paidtemp[0]      ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.449 ns                ;
+; N/A                                     ; 149.90 MHz ( period = 6.671 ns )                    ; paidtemp[0]      ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.449 ns                ;
+; N/A                                     ; 149.90 MHz ( period = 6.671 ns )                    ; paidtemp[0]      ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.449 ns                ;
+; N/A                                     ; 149.90 MHz ( period = 6.671 ns )                    ; paidtemp[0]      ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.449 ns                ;
+; N/A                                     ; 151.31 MHz ( period = 6.609 ns )                    ; paidtemp[1]      ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.387 ns                ;
+; N/A                                     ; 151.31 MHz ( period = 6.609 ns )                    ; paidtemp[1]      ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.387 ns                ;
+; N/A                                     ; 151.31 MHz ( period = 6.609 ns )                    ; paidtemp[1]      ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.387 ns                ;
+; N/A                                     ; 151.31 MHz ( period = 6.609 ns )                    ; paidtemp[1]      ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.387 ns                ;
+; N/A                                     ; 151.47 MHz ( period = 6.602 ns )                    ; paidtemp[2]      ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 6.341 ns                ;
+; N/A                                     ; 151.86 MHz ( period = 6.585 ns )                    ; neededtemp[0]    ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 6.363 ns                ;
+; N/A                                     ; 152.02 MHz ( period = 6.578 ns )                    ; neededtemp[0]    ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 6.317 ns                ;
+; N/A                                     ; 152.65 MHz ( period = 6.551 ns )                    ; total[3]         ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.290 ns                ;
+; N/A                                     ; 152.65 MHz ( period = 6.551 ns )                    ; total[3]         ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.290 ns                ;
+; N/A                                     ; 152.65 MHz ( period = 6.551 ns )                    ; total[3]         ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.290 ns                ;
+; N/A                                     ; 152.65 MHz ( period = 6.551 ns )                    ; total[3]         ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.290 ns                ;
+; N/A                                     ; 154.82 MHz ( period = 6.459 ns )                    ; neededtemp[3]    ; needed[0]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.198 ns                ;
+; N/A                                     ; 155.21 MHz ( period = 6.443 ns )                    ; paidtemp[0]      ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 6.182 ns                ;
+; N/A                                     ; 156.72 MHz ( period = 6.381 ns )                    ; paidtemp[1]      ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 6.120 ns                ;
+; N/A                                     ; 157.08 MHz ( period = 6.366 ns )                    ; neededtemp[0]    ; current_state.s1 ; clk        ; clk      ; None                        ; None                      ; 6.144 ns                ;
+; N/A                                     ; 157.16 MHz ( period = 6.363 ns )                    ; total[2]         ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.102 ns                ;
+; N/A                                     ; 157.16 MHz ( period = 6.363 ns )                    ; total[2]         ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.102 ns                ;
+; N/A                                     ; 157.16 MHz ( period = 6.363 ns )                    ; total[2]         ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.102 ns                ;
+; N/A                                     ; 157.16 MHz ( period = 6.363 ns )                    ; total[2]         ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 6.102 ns                ;
+; N/A                                     ; 158.15 MHz ( period = 6.323 ns )                    ; total[3]         ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 6.023 ns                ;
+; N/A                                     ; 158.40 MHz ( period = 6.313 ns )                    ; neededtemp[0]    ; needed[3]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.091 ns                ;
+; N/A                                     ; 158.60 MHz ( period = 6.305 ns )                    ; neededtemp[0]    ; needed[1]~reg0   ; clk        ; clk      ; None                        ; None                      ; 6.044 ns                ;
+; N/A                                     ; 159.41 MHz ( period = 6.273 ns )                    ; current_state.sb ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.973 ns                ;
+; N/A                                     ; 161.39 MHz ( period = 6.196 ns )                    ; current_state.s3 ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.896 ns                ;
+; N/A                                     ; 161.39 MHz ( period = 6.196 ns )                    ; current_state.s3 ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.896 ns                ;
+; N/A                                     ; 161.84 MHz ( period = 6.179 ns )                    ; current_state.s0 ; neededtemp[3]    ; clk        ; clk      ; None                        ; None                      ; 5.879 ns                ;
+; N/A                                     ; 162.42 MHz ( period = 6.157 ns )                    ; total[1]         ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.896 ns                ;
+; N/A                                     ; 162.42 MHz ( period = 6.157 ns )                    ; total[1]         ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.896 ns                ;
+; N/A                                     ; 162.42 MHz ( period = 6.157 ns )                    ; total[1]         ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.896 ns                ;
+; N/A                                     ; 162.42 MHz ( period = 6.157 ns )                    ; total[1]         ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.896 ns                ;
+; N/A                                     ; 163.00 MHz ( period = 6.135 ns )                    ; total[2]         ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 5.835 ns                ;
+; N/A                                     ; 165.04 MHz ( period = 6.059 ns )                    ; current_state.sb ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 5.798 ns                ;
+; N/A                                     ; 165.40 MHz ( period = 6.046 ns )                    ; total[0]         ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.824 ns                ;
+; N/A                                     ; 165.40 MHz ( period = 6.046 ns )                    ; total[0]         ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.824 ns                ;
+; N/A                                     ; 165.40 MHz ( period = 6.046 ns )                    ; total[0]         ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.824 ns                ;
+; N/A                                     ; 165.40 MHz ( period = 6.046 ns )                    ; total[0]         ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.824 ns                ;
+; N/A                                     ; 166.00 MHz ( period = 6.024 ns )                    ; neededtemp[0]    ; needed[0]~reg0   ; clk        ; clk      ; None                        ; None                      ; 5.763 ns                ;
+; N/A                                     ; 168.66 MHz ( period = 5.929 ns )                    ; total[1]         ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 5.629 ns                ;
+; N/A                                     ; 170.47 MHz ( period = 5.866 ns )                    ; paidtemp[3]      ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.605 ns                ;
+; N/A                                     ; 170.47 MHz ( period = 5.866 ns )                    ; paidtemp[3]      ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.605 ns                ;
+; N/A                                     ; 171.70 MHz ( period = 5.824 ns )                    ; current_state.s0 ; neededtemp[1]    ; clk        ; clk      ; None                        ; None                      ; 5.524 ns                ;
+; N/A                                     ; 171.88 MHz ( period = 5.818 ns )                    ; total[0]         ; current_state.sa ; clk        ; clk      ; None                        ; None                      ; 5.557 ns                ;
+; N/A                                     ; 173.10 MHz ( period = 5.777 ns )                    ; neededtemp[0]    ; total[3]         ; clk        ; clk      ; None                        ; None                      ; 5.555 ns                ;
+; N/A                                     ; 173.13 MHz ( period = 5.776 ns )                    ; neededtemp[0]    ; total[2]         ; clk        ; clk      ; None                        ; None                      ; 5.554 ns                ;
+; N/A                                     ; 174.03 MHz ( period = 5.746 ns )                    ; current_state.s3 ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.446 ns                ;
+; N/A                                     ; 174.03 MHz ( period = 5.746 ns )                    ; current_state.s3 ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.446 ns                ;
+; N/A                                     ; 176.09 MHz ( period = 5.679 ns )                    ; paidtemp[1]      ; paidtemp[3]      ; clk        ; clk      ; None                        ; None                      ; 5.418 ns                ;
+; N/A                                     ; 176.99 MHz ( period = 5.650 ns )                    ; current_state.sb ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.350 ns                ;
+; N/A                                     ; 176.99 MHz ( period = 5.650 ns )                    ; current_state.sb ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.350 ns                ;
+; N/A                                     ; 177.53 MHz ( period = 5.633 ns )                    ; paidtemp[2]      ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.372 ns                ;
+; N/A                                     ; 177.53 MHz ( period = 5.633 ns )                    ; paidtemp[2]      ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.372 ns                ;
+; N/A                                     ; 177.65 MHz ( period = 5.629 ns )                    ; paidtemp[3]      ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.368 ns                ;
+; N/A                                     ; 177.65 MHz ( period = 5.629 ns )                    ; paidtemp[3]      ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.368 ns                ;
+; N/A                                     ; 177.97 MHz ( period = 5.619 ns )                    ; paidtemp[2]      ; paidtemp[3]      ; clk        ; clk      ; None                        ; None                      ; 5.358 ns                ;
+; N/A                                     ; 178.09 MHz ( period = 5.615 ns )                    ; neededtemp[1]    ; needed[3]~reg0   ; clk        ; clk      ; None                        ; None                      ; 5.393 ns                ;
+; N/A                                     ; 181.13 MHz ( period = 5.521 ns )                    ; paidtemp[0]      ; paidtemp[3]      ; clk        ; clk      ; None                        ; None                      ; 5.260 ns                ;
+; N/A                                     ; 182.38 MHz ( period = 5.483 ns )                    ; neededtemp[2]    ; needed[3]~reg0   ; clk        ; clk      ; None                        ; None                      ; 5.261 ns                ;
+; N/A                                     ; 182.68 MHz ( period = 5.474 ns )                    ; paidtemp[0]      ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.213 ns                ;
+; N/A                                     ; 182.68 MHz ( period = 5.474 ns )                    ; paidtemp[0]      ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.213 ns                ;
+; N/A                                     ; 182.78 MHz ( period = 5.471 ns )                    ; paidtemp[3]      ; outmoney~reg0    ; clk        ; clk      ; None                        ; None                      ; 5.210 ns                ;
+; N/A                                     ; 182.88 MHz ( period = 5.468 ns )                    ; paidtemp[3]      ; current_state.s2 ; clk        ; clk      ; None                        ; None                      ; 5.207 ns                ;
+; N/A                                     ; 183.25 MHz ( period = 5.457 ns )                    ; current_state.s0 ; needed[1]~reg0   ; clk        ; clk      ; None                        ; None                      ; 5.157 ns                ;
+; N/A                                     ; 183.72 MHz ( period = 5.443 ns )                    ; neededtemp[3]    ; neededtemp[3]    ; clk        ; clk      ; None                        ; None                      ; 5.182 ns                ;
+; N/A                                     ; 184.77 MHz ( period = 5.412 ns )                    ; paidtemp[1]      ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.151 ns                ;
+; N/A                                     ; 184.77 MHz ( period = 5.412 ns )                    ; paidtemp[1]      ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.151 ns                ;
+; N/A                                     ; 185.32 MHz ( period = 5.396 ns )                    ; paidtemp[2]      ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.135 ns                ;
+; N/A                                     ; 185.32 MHz ( period = 5.396 ns )                    ; paidtemp[2]      ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.135 ns                ;
+; N/A                                     ; 186.50 MHz ( period = 5.362 ns )                    ; current_state.sb ; neededtemp[0]    ; clk        ; clk      ; None                        ; None                      ; 5.062 ns                ;
+; N/A                                     ; 186.78 MHz ( period = 5.354 ns )                    ; total[3]         ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.054 ns                ;
+; N/A                                     ; 186.78 MHz ( period = 5.354 ns )                    ; total[3]         ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 5.054 ns                ;
+; N/A                                     ; 188.18 MHz ( period = 5.314 ns )                    ; current_state.sb ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.053 ns                ;
+; N/A                                     ; 188.18 MHz ( period = 5.314 ns )                    ; current_state.sb ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.053 ns                ;
+; N/A                                     ; 188.18 MHz ( period = 5.314 ns )                    ; current_state.sb ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.053 ns                ;
+; N/A                                     ; 188.18 MHz ( period = 5.314 ns )                    ; current_state.sb ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 5.053 ns                ;
+; N/A                                     ; 190.91 MHz ( period = 5.238 ns )                    ; paidtemp[2]      ; outmoney~reg0    ; clk        ; clk      ; None                        ; None                      ; 4.977 ns                ;
+; N/A                                     ; 190.95 MHz ( period = 5.237 ns )                    ; paidtemp[0]      ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.976 ns                ;
+; N/A                                     ; 190.95 MHz ( period = 5.237 ns )                    ; paidtemp[0]      ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.976 ns                ;
+; N/A                                     ; 191.02 MHz ( period = 5.235 ns )                    ; paidtemp[2]      ; current_state.s2 ; clk        ; clk      ; None                        ; None                      ; 4.974 ns                ;
+; N/A                                     ; 191.79 MHz ( period = 5.214 ns )                    ; current_state.sb ; total[2]         ; clk        ; clk      ; None                        ; None                      ; 4.953 ns                ;
+; N/A                                     ; 191.79 MHz ( period = 5.214 ns )                    ; current_state.sb ; total[3]         ; clk        ; clk      ; None                        ; None                      ; 4.953 ns                ;
+; N/A                                     ; 191.98 MHz ( period = 5.209 ns )                    ; current_state.sb ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.948 ns                ;
+; N/A                                     ; 192.01 MHz ( period = 5.208 ns )                    ; current_state.sb ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.947 ns                ;
+; N/A                                     ; 192.31 MHz ( period = 5.200 ns )                    ; current_state.sb ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A                                     ; 192.31 MHz ( period = 5.200 ns )                    ; current_state.sb ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.900 ns                ;
+; N/A                                     ; 192.57 MHz ( period = 5.193 ns )                    ; current_state.sb ; total[1]         ; clk        ; clk      ; None                        ; None                      ; 4.932 ns                ;
+; N/A                                     ; 193.24 MHz ( period = 5.175 ns )                    ; paidtemp[1]      ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.914 ns                ;
+; N/A                                     ; 193.24 MHz ( period = 5.175 ns )                    ; paidtemp[1]      ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.914 ns                ;
+; N/A                                     ; 193.57 MHz ( period = 5.166 ns )                    ; total[2]         ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.866 ns                ;
+; N/A                                     ; 193.57 MHz ( period = 5.166 ns )                    ; total[2]         ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.866 ns                ;
+; N/A                                     ; 194.06 MHz ( period = 5.153 ns )                    ; current_state.s0 ; neededtemp[0]    ; clk        ; clk      ; None                        ; None                      ; 4.853 ns                ;
+; N/A                                     ; 195.16 MHz ( period = 5.124 ns )                    ; current_state.s0 ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.863 ns                ;
+; N/A                                     ; 195.16 MHz ( period = 5.124 ns )                    ; current_state.s0 ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.863 ns                ;
+; N/A                                     ; 195.16 MHz ( period = 5.124 ns )                    ; current_state.s0 ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.863 ns                ;
+; N/A                                     ; 195.16 MHz ( period = 5.124 ns )                    ; current_state.s0 ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.863 ns                ;
+; N/A                                     ; 195.43 MHz ( period = 5.117 ns )                    ; total[3]         ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.817 ns                ;
+; N/A                                     ; 195.43 MHz ( period = 5.117 ns )                    ; total[3]         ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.817 ns                ;
+; N/A                                     ; 196.77 MHz ( period = 5.082 ns )                    ; current_state.s2 ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.860 ns                ;
+; N/A                                     ; 196.81 MHz ( period = 5.081 ns )                    ; current_state.s2 ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.859 ns                ;
+; N/A                                     ; 196.89 MHz ( period = 5.079 ns )                    ; paidtemp[0]      ; outmoney~reg0    ; clk        ; clk      ; None                        ; None                      ; 4.818 ns                ;
+; N/A                                     ; 197.01 MHz ( period = 5.076 ns )                    ; paidtemp[0]      ; current_state.s2 ; clk        ; clk      ; None                        ; None                      ; 4.815 ns                ;
+; N/A                                     ; 197.24 MHz ( period = 5.070 ns )                    ; neededtemp[1]    ; total[3]         ; clk        ; clk      ; None                        ; None                      ; 4.848 ns                ;
+; N/A                                     ; 199.32 MHz ( period = 5.017 ns )                    ; paidtemp[1]      ; outmoney~reg0    ; clk        ; clk      ; None                        ; None                      ; 4.756 ns                ;
+; N/A                                     ; 199.44 MHz ( period = 5.014 ns )                    ; paidtemp[1]      ; current_state.s2 ; clk        ; clk      ; None                        ; None                      ; 4.753 ns                ;
+; N/A                                     ; 201.61 MHz ( period = 4.960 ns )                    ; total[1]         ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.660 ns                ;
+; N/A                                     ; 201.61 MHz ( period = 4.960 ns )                    ; total[1]         ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.660 ns                ;
+; N/A                                     ; 201.65 MHz ( period = 4.959 ns )                    ; total[3]         ; outmoney~reg0    ; clk        ; clk      ; None                        ; None                      ; 4.659 ns                ;
+; N/A                                     ; 201.78 MHz ( period = 4.956 ns )                    ; total[3]         ; current_state.s2 ; clk        ; clk      ; None                        ; None                      ; 4.656 ns                ;
+; N/A                                     ; 202.51 MHz ( period = 4.938 ns )                    ; neededtemp[2]    ; total[3]         ; clk        ; clk      ; None                        ; None                      ; 4.716 ns                ;
+; N/A                                     ; 202.84 MHz ( period = 4.930 ns )                    ; q[2]             ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 4.669 ns                ;
+; N/A                                     ; 202.88 MHz ( period = 4.929 ns )                    ; total[2]         ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.629 ns                ;
+; N/A                                     ; 202.88 MHz ( period = 4.929 ns )                    ; total[2]         ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.629 ns                ;
+; N/A                                     ; 203.38 MHz ( period = 4.917 ns )                    ; current_state.s1 ; moneyout[0]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.656 ns                ;
+; N/A                                     ; 203.38 MHz ( period = 4.917 ns )                    ; current_state.s1 ; moneyout[1]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.656 ns                ;
+; N/A                                     ; 203.38 MHz ( period = 4.917 ns )                    ; current_state.s1 ; moneyout[2]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.656 ns                ;
+; N/A                                     ; 203.38 MHz ( period = 4.917 ns )                    ; current_state.s1 ; moneyout[3]~reg0 ; clk        ; clk      ; None                        ; None                      ; 4.656 ns                ;
+; N/A                                     ; 204.16 MHz ( period = 4.898 ns )                    ; current_state.s0 ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 4.637 ns                ;
+; N/A                                     ; 205.25 MHz ( period = 4.872 ns )                    ; current_state.s2 ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.611 ns                ;
+; N/A                                     ; 206.23 MHz ( period = 4.849 ns )                    ; total[0]         ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.588 ns                ;
+; N/A                                     ; 206.23 MHz ( period = 4.849 ns )                    ; total[0]         ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.588 ns                ;
+; N/A                                     ; 206.40 MHz ( period = 4.845 ns )                    ; q[2]             ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.584 ns                ;
+; N/A                                     ; 206.44 MHz ( period = 4.844 ns )                    ; q[2]             ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.583 ns                ;
+; N/A                                     ; 208.38 MHz ( period = 4.799 ns )                    ; current_state.s1 ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.538 ns                ;
+; N/A                                     ; 208.42 MHz ( period = 4.798 ns )                    ; current_state.s1 ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.537 ns                ;
+; N/A                                     ; 208.64 MHz ( period = 4.793 ns )                    ; current_state.s0 ; current_state.s1 ; clk        ; clk      ; None                        ; None                      ; 4.532 ns                ;
+; N/A                                     ; 209.03 MHz ( period = 4.784 ns )                    ; current_state.sb ; total[0]         ; clk        ; clk      ; None                        ; None                      ; 4.484 ns                ;
+; N/A                                     ; 209.16 MHz ( period = 4.781 ns )                    ; current_state.s0 ; selling~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.481 ns                ;
+; N/A                                     ; 209.29 MHz ( period = 4.778 ns )                    ; current_state.s2 ; needed[0]~reg0   ; clk        ; clk      ; None                        ; None                      ; 4.517 ns                ;
+; N/A                                     ; 209.29 MHz ( period = 4.778 ns )                    ; current_state.s2 ; needed[1]~reg0   ; clk        ; clk      ; None                        ; None                      ; 4.517 ns                ;
+; N/A                                     ; 209.60 MHz ( period = 4.771 ns )                    ; total[2]         ; outmoney~reg0    ; clk        ; clk      ; None                        ; None                      ; 4.471 ns                ;
+; N/A                                     ; 209.73 MHz ( period = 4.768 ns )                    ; total[2]         ; current_state.s2 ; clk        ; clk      ; None                        ; None                      ; 4.468 ns                ;
+; N/A                                     ; 211.33 MHz ( period = 4.732 ns )                    ; paidtemp[3]      ; success~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.471 ns                ;
+; N/A                                     ; 211.73 MHz ( period = 4.723 ns )                    ; q[3]             ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 4.462 ns                ;
+; N/A                                     ; 211.73 MHz ( period = 4.723 ns )                    ; total[1]         ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.423 ns                ;
+; N/A                                     ; 211.73 MHz ( period = 4.723 ns )                    ; total[1]         ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.423 ns                ;
+; N/A                                     ; 212.40 MHz ( period = 4.708 ns )                    ; neededtemp[1]    ; total[2]         ; clk        ; clk      ; None                        ; None                      ; 4.486 ns                ;
+; N/A                                     ; 213.31 MHz ( period = 4.688 ns )                    ; current_state.s2 ; timecnt[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 4.466 ns                ;
+; N/A                                     ; 213.31 MHz ( period = 4.688 ns )                    ; current_state.s2 ; timecnt[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 4.466 ns                ;
+; N/A                                     ; 214.22 MHz ( period = 4.668 ns )                    ; current_state.s3 ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.407 ns                ;
+; N/A                                     ; 214.27 MHz ( period = 4.667 ns )                    ; current_state.s3 ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.406 ns                ;
+; N/A                                     ; 214.36 MHz ( period = 4.665 ns )                    ; current_state.sb ; needed[0]~reg0   ; clk        ; clk      ; None                        ; None                      ; 4.365 ns                ;
+; N/A                                     ; 214.64 MHz ( period = 4.659 ns )                    ; current_state.s1 ; paid[2]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.359 ns                ;
+; N/A                                     ; 214.64 MHz ( period = 4.659 ns )                    ; current_state.s1 ; paid[3]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.359 ns                ;
+; N/A                                     ; 214.68 MHz ( period = 4.658 ns )                    ; q[0]             ; current_state.s0 ; clk        ; clk      ; None                        ; None                      ; 4.397 ns                ;
+; N/A                                     ; 215.61 MHz ( period = 4.638 ns )                    ; q[3]             ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.377 ns                ;
+; N/A                                     ; 215.66 MHz ( period = 4.637 ns )                    ; paidtemp[1]      ; paidtemp[2]      ; clk        ; clk      ; None                        ; None                      ; 4.376 ns                ;
+; N/A                                     ; 215.66 MHz ( period = 4.637 ns )                    ; q[3]             ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.376 ns                ;
+; N/A                                     ; 216.64 MHz ( period = 4.616 ns )                    ; current_state.s0 ; needed[3]~reg0   ; clk        ; clk      ; None                        ; None                      ; 4.355 ns                ;
+; N/A                                     ; 216.83 MHz ( period = 4.612 ns )                    ; total[0]         ; paid[0]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.351 ns                ;
+; N/A                                     ; 216.83 MHz ( period = 4.612 ns )                    ; total[0]         ; paid[1]~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.351 ns                ;
+; N/A                                     ; 218.29 MHz ( period = 4.581 ns )                    ; current_state.sb ; success~reg0     ; clk        ; clk      ; None                        ; None                      ; 4.281 ns                ;
+; N/A                                     ; 218.48 MHz ( period = 4.577 ns )                    ; paidtemp[2]      ; paidtemp[2]      ; clk        ; clk      ; None                        ; None                      ; 4.316 ns                ;
+; N/A                                     ; 218.67 MHz ( period = 4.573 ns )                    ; q[0]             ; current_state.sb ; clk        ; clk      ; None                        ; None                      ; 4.312 ns                ;
+; N/A                                     ; 218.72 MHz ( period = 4.572 ns )                    ; q[0]             ; current_state.s3 ; clk        ; clk      ; None                        ; None                      ; 4.311 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                  ;                  ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------+------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------+
+; tsu                                                                            ;
++-------+--------------+------------+--------------+------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From         ; To               ; To Clock ;
++-------+--------------+------------+--------------+------------------+----------+
+; N/A   ; None         ; 14.237 ns  ; coin1        ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 13.021 ns  ; coin1        ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 13.017 ns  ; coin1        ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 12.993 ns  ; coin1        ; neededtemp[0]    ; clk      ;
+; N/A   ; None         ; 12.904 ns  ; coin1        ; current_state.s0 ; clk      ;
+; N/A   ; None         ; 12.897 ns  ; coin1        ; selling~reg0     ; clk      ;
+; N/A   ; None         ; 12.685 ns  ; coin1        ; current_state.s1 ; clk      ;
+; N/A   ; None         ; 12.624 ns  ; coin1        ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 12.511 ns  ; price1       ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 12.343 ns  ; coin1        ; needed[0]~reg0   ; clk      ;
+; N/A   ; None         ; 11.886 ns  ; price1       ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 11.813 ns  ; coin5        ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 11.182 ns  ; coin5        ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 11.154 ns  ; coin5        ; neededtemp[0]    ; clk      ;
+; N/A   ; None         ; 11.065 ns  ; coin5        ; current_state.s0 ; clk      ;
+; N/A   ; None         ; 11.058 ns  ; coin5        ; selling~reg0     ; clk      ;
+; N/A   ; None         ; 10.995 ns  ; price1       ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 10.924 ns  ; coin1        ; paidtemp[3]      ; clk      ;
+; N/A   ; None         ; 10.889 ns  ; price5       ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 10.846 ns  ; coin5        ; current_state.s1 ; clk      ;
+; N/A   ; None         ; 10.793 ns  ; price5       ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 10.785 ns  ; coin5        ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 10.657 ns  ; price1       ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 10.596 ns  ; price1       ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 10.593 ns  ; coin5        ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 10.585 ns  ; end_select   ; current_state.s0 ; clk      ;
+; N/A   ; None         ; 10.583 ns  ; price1       ; neededtemp[0]    ; clk      ;
+; N/A   ; None         ; 10.504 ns  ; coin5        ; needed[0]~reg0   ; clk      ;
+; N/A   ; None         ; 10.450 ns  ; price1       ; total[3]         ; clk      ;
+; N/A   ; None         ; 10.428 ns  ; coin5        ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 10.229 ns  ; price1       ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 10.068 ns  ; coin10       ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 10.043 ns  ; coin1        ; paid[3]~reg0     ; clk      ;
+; N/A   ; None         ; 9.929 ns   ; price1       ; total[2]         ; clk      ;
+; N/A   ; None         ; 9.886 ns   ; price1       ; needed[0]~reg0   ; clk      ;
+; N/A   ; None         ; 9.740 ns   ; end_select   ; total[2]         ; clk      ;
+; N/A   ; None         ; 9.740 ns   ; end_select   ; total[3]         ; clk      ;
+; N/A   ; None         ; 9.735 ns   ; end_select   ; current_state.sb ; clk      ;
+; N/A   ; None         ; 9.734 ns   ; end_select   ; current_state.s3 ; clk      ;
+; N/A   ; None         ; 9.728 ns   ; coin1        ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 9.727 ns   ; coin10       ; current_state.s0 ; clk      ;
+; N/A   ; None         ; 9.719 ns   ; end_select   ; total[1]         ; clk      ;
+; N/A   ; None         ; 9.693 ns   ; coin5        ; current_state.sb ; clk      ;
+; N/A   ; None         ; 9.692 ns   ; coin5        ; current_state.s3 ; clk      ;
+; N/A   ; None         ; 9.645 ns   ; coin10       ; current_state.sb ; clk      ;
+; N/A   ; None         ; 9.644 ns   ; coin10       ; current_state.s3 ; clk      ;
+; N/A   ; None         ; 9.564 ns   ; price5       ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 9.514 ns   ; coin5        ; paidtemp[3]      ; clk      ;
+; N/A   ; None         ; 9.513 ns   ; start_select ; current_state.sa ; clk      ;
+; N/A   ; None         ; 9.503 ns   ; price5       ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 9.464 ns   ; price5       ; neededtemp[0]    ; clk      ;
+; N/A   ; None         ; 9.426 ns   ; coin5        ; q[0]             ; clk      ;
+; N/A   ; None         ; 9.424 ns   ; coin1        ; paidtemp[2]      ; clk      ;
+; N/A   ; None         ; 9.373 ns   ; price5       ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 9.310 ns   ; end_select   ; total[0]         ; clk      ;
+; N/A   ; None         ; 9.280 ns   ; coin10       ; current_state.s1 ; clk      ;
+; N/A   ; None         ; 9.257 ns   ; coin10       ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 9.235 ns   ; coin1        ; current_state.sb ; clk      ;
+; N/A   ; None         ; 9.234 ns   ; coin1        ; current_state.s3 ; clk      ;
+; N/A   ; None         ; 9.181 ns   ; coin5        ; paidtemp[2]      ; clk      ;
+; N/A   ; None         ; 9.175 ns   ; price6       ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 9.170 ns   ; price3       ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 9.136 ns   ; price5       ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 9.076 ns   ; price3       ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 8.991 ns   ; coin5        ; q[2]             ; clk      ;
+; N/A   ; None         ; 8.991 ns   ; coin5        ; q[3]             ; clk      ;
+; N/A   ; None         ; 8.989 ns   ; coin5        ; q[1]             ; clk      ;
+; N/A   ; None         ; 8.903 ns   ; coin5        ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 8.902 ns   ; coin10       ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 8.897 ns   ; coin10       ; q[0]             ; clk      ;
+; N/A   ; None         ; 8.848 ns   ; coin10       ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 8.837 ns   ; price5       ; total[3]         ; clk      ;
+; N/A   ; None         ; 8.836 ns   ; price5       ; total[2]         ; clk      ;
+; N/A   ; None         ; 8.808 ns   ; price6       ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 8.767 ns   ; price5       ; needed[0]~reg0   ; clk      ;
+; N/A   ; None         ; 8.649 ns   ; price3       ; neededtemp[0]    ; clk      ;
+; N/A   ; None         ; 8.633 ns   ; coin5        ; paid[3]~reg0     ; clk      ;
+; N/A   ; None         ; 8.574 ns   ; coin1        ; paid[2]~reg0     ; clk      ;
+; N/A   ; None         ; 8.535 ns   ; coin10       ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 8.530 ns   ; price1       ; total[1]         ; clk      ;
+; N/A   ; None         ; 8.498 ns   ; coin1        ; q[0]             ; clk      ;
+; N/A   ; None         ; 8.462 ns   ; coin10       ; q[2]             ; clk      ;
+; N/A   ; None         ; 8.462 ns   ; coin10       ; q[3]             ; clk      ;
+; N/A   ; None         ; 8.460 ns   ; coin10       ; q[1]             ; clk      ;
+; N/A   ; None         ; 8.432 ns   ; price6       ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 8.335 ns   ; price6       ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 8.331 ns   ; coin5        ; paid[2]~reg0     ; clk      ;
+; N/A   ; None         ; 8.231 ns   ; coin10       ; neededtemp[0]    ; clk      ;
+; N/A   ; None         ; 8.203 ns   ; coin1        ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 8.063 ns   ; coin1        ; q[2]             ; clk      ;
+; N/A   ; None         ; 8.063 ns   ; coin1        ; q[3]             ; clk      ;
+; N/A   ; None         ; 8.061 ns   ; coin1        ; q[1]             ; clk      ;
+; N/A   ; None         ; 8.003 ns   ; coin10       ; paidtemp[2]      ; clk      ;
+; N/A   ; None         ; 7.952 ns   ; price3       ; needed[0]~reg0   ; clk      ;
+; N/A   ; None         ; 7.952 ns   ; coin1        ; paid[1]~reg0     ; clk      ;
+; N/A   ; None         ; 7.865 ns   ; coin5        ; paid[1]~reg0     ; clk      ;
+; N/A   ; None         ; 7.847 ns   ; price3       ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 7.834 ns   ; coin10       ; paid[1]~reg0     ; clk      ;
+; N/A   ; None         ; 7.721 ns   ; coin10       ; paidtemp[3]      ; clk      ;
+; N/A   ; None         ; 7.694 ns   ; coin10       ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 7.654 ns   ; price3       ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 7.580 ns   ; price5       ; total[0]         ; clk      ;
+; N/A   ; None         ; 7.578 ns   ; price3       ; neededtemp[1]    ; clk      ;
+; N/A   ; None         ; 7.551 ns   ; coin10       ; needed[0]~reg0   ; clk      ;
+; N/A   ; None         ; 7.511 ns   ; coin1        ; paidtemp[0]      ; clk      ;
+; N/A   ; None         ; 7.479 ns   ; coin1        ; paidtemp[1]      ; clk      ;
+; N/A   ; None         ; 7.437 ns   ; price5       ; total[1]         ; clk      ;
+; N/A   ; None         ; 7.422 ns   ; coin5        ; paidtemp[0]      ; clk      ;
+; N/A   ; None         ; 7.392 ns   ; coin5        ; paidtemp[1]      ; clk      ;
+; N/A   ; None         ; 7.361 ns   ; coin10       ; paidtemp[1]      ; clk      ;
+; N/A   ; None         ; 7.211 ns   ; price3       ; needed[1]~reg0   ; clk      ;
+; N/A   ; None         ; 7.170 ns   ; coin10       ; paid[2]~reg0     ; clk      ;
+; N/A   ; None         ; 7.141 ns   ; coin1        ; paid[0]~reg0     ; clk      ;
+; N/A   ; None         ; 7.106 ns   ; price6       ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 7.089 ns   ; price3       ; total[2]         ; clk      ;
+; N/A   ; None         ; 7.088 ns   ; price3       ; total[3]         ; clk      ;
+; N/A   ; None         ; 7.062 ns   ; price6       ; total[1]         ; clk      ;
+; N/A   ; None         ; 7.052 ns   ; coin5        ; paid[0]~reg0     ; clk      ;
+; N/A   ; None         ; 6.923 ns   ; coin10       ; selling~reg0     ; clk      ;
+; N/A   ; None         ; 6.916 ns   ; price6       ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 6.904 ns   ; start_select ; current_state.sb ; clk      ;
+; N/A   ; None         ; 6.903 ns   ; start_select ; current_state.s3 ; clk      ;
+; N/A   ; None         ; 6.887 ns   ; coin10       ; paid[3]~reg0     ; clk      ;
+; N/A   ; None         ; 6.333 ns   ; price6       ; total[3]         ; clk      ;
+; N/A   ; None         ; 6.331 ns   ; price6       ; total[2]         ; clk      ;
+; N/A   ; None         ; 6.085 ns   ; price1       ; total[0]         ; clk      ;
+; N/A   ; None         ; 5.512 ns   ; price3       ; total[1]         ; clk      ;
+; N/A   ; None         ; 5.025 ns   ; price4       ; neededtemp[3]    ; clk      ;
+; N/A   ; None         ; 4.619 ns   ; price3       ; total[0]         ; clk      ;
+; N/A   ; None         ; 4.325 ns   ; price4       ; neededtemp[2]    ; clk      ;
+; N/A   ; None         ; 3.509 ns   ; price4       ; needed[3]~reg0   ; clk      ;
+; N/A   ; None         ; 3.096 ns   ; price4       ; needed[2]~reg0   ; clk      ;
+; N/A   ; None         ; 2.964 ns   ; price4       ; total[3]         ; clk      ;
+; N/A   ; None         ; 2.338 ns   ; price4       ; total[2]         ; clk      ;
++-------+--------------+------------+--------------+------------------+----------+
+
+
++---------------------------------------------------------------------------------+
+; tco                                                                             ;
++-------+--------------+------------+------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From             ; To          ; From Clock ;
++-------+--------------+------------+------------------+-------------+------------+
+; N/A   ; None         ; 8.473 ns   ; needed[1]~reg0   ; needed[1]   ; clk        ;
+; N/A   ; None         ; 8.077 ns   ; failure~reg0     ; failure     ; clk        ;
+; N/A   ; None         ; 8.036 ns   ; paid[1]~reg0     ; paid[1]     ; clk        ;
+; N/A   ; None         ; 7.755 ns   ; timecnt[0]~reg0  ; timecnt[0]  ; clk        ;
+; N/A   ; None         ; 7.684 ns   ; needed[3]~reg0   ; needed[3]   ; clk        ;
+; N/A   ; None         ; 7.611 ns   ; timecnt[3]~reg0  ; timecnt[3]  ; clk        ;
+; N/A   ; None         ; 7.347 ns   ; paid[0]~reg0     ; paid[0]     ; clk        ;
+; N/A   ; None         ; 7.335 ns   ; paid[3]~reg0     ; paid[3]     ; clk        ;
+; N/A   ; None         ; 7.331 ns   ; needed[2]~reg0   ; needed[2]   ; clk        ;
+; N/A   ; None         ; 7.205 ns   ; success~reg0     ; success     ; clk        ;
+; N/A   ; None         ; 7.160 ns   ; selling~reg0     ; selling     ; clk        ;
+; N/A   ; None         ; 7.146 ns   ; paid[2]~reg0     ; paid[2]     ; clk        ;
+; N/A   ; None         ; 7.050 ns   ; moneyout[2]~reg0 ; moneyout[2] ; clk        ;
+; N/A   ; None         ; 7.037 ns   ; moneyout[0]~reg0 ; moneyout[0] ; clk        ;
+; N/A   ; None         ; 7.027 ns   ; moneyout[3]~reg0 ; moneyout[3] ; clk        ;
+; N/A   ; None         ; 7.005 ns   ; timecnt[2]~reg0  ; timecnt[2]  ; clk        ;
+; N/A   ; None         ; 7.001 ns   ; moneyout[1]~reg0 ; moneyout[1] ; clk        ;
+; N/A   ; None         ; 6.998 ns   ; timecnt[1]~reg0  ; timecnt[1]  ; clk        ;
+; N/A   ; None         ; 6.938 ns   ; outmoney~reg0    ; outmoney    ; clk        ;
+; N/A   ; None         ; 6.849 ns   ; needed[0]~reg0   ; needed[0]   ; clk        ;
++-------+--------------+------------+------------------+-------------+------------+
+
+
++---------------------------------------------------------------------------------------+
+; th                                                                                    ;
++---------------+-------------+------------+--------------+------------------+----------+
+; Minimum Slack ; Required th ; Actual th  ; From         ; To               ; To Clock ;
++---------------+-------------+------------+--------------+------------------+----------+
+; N/A           ; None        ; -2.285 ns  ; price4       ; total[3]         ; clk      ;
+; N/A           ; None        ; -2.286 ns  ; price4       ; total[2]         ; clk      ;
+; N/A           ; None        ; -2.851 ns  ; price4       ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -3.044 ns  ; price4       ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -4.273 ns  ; price4       ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -4.367 ns  ; price4       ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -4.567 ns  ; price3       ; total[0]         ; clk      ;
+; N/A           ; None        ; -5.460 ns  ; price3       ; total[1]         ; clk      ;
+; N/A           ; None        ; -6.033 ns  ; price1       ; total[0]         ; clk      ;
+; N/A           ; None        ; -6.079 ns  ; price3       ; total[3]         ; clk      ;
+; N/A           ; None        ; -6.161 ns  ; price3       ; total[2]         ; clk      ;
+; N/A           ; None        ; -6.279 ns  ; price6       ; total[2]         ; clk      ;
+; N/A           ; None        ; -6.281 ns  ; price6       ; total[3]         ; clk      ;
+; N/A           ; None        ; -6.473 ns  ; end_select   ; current_state.sb ; clk      ;
+; N/A           ; None        ; -6.624 ns  ; price3       ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -6.835 ns  ; coin10       ; paid[3]~reg0     ; clk      ;
+; N/A           ; None        ; -6.851 ns  ; start_select ; current_state.s3 ; clk      ;
+; N/A           ; None        ; -6.852 ns  ; start_select ; current_state.sb ; clk      ;
+; N/A           ; None        ; -6.864 ns  ; price6       ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -6.871 ns  ; coin10       ; selling~reg0     ; clk      ;
+; N/A           ; None        ; -6.873 ns  ; coin5        ; paid[2]~reg0     ; clk      ;
+; N/A           ; None        ; -6.919 ns  ; price3       ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -7.000 ns  ; coin5        ; paid[0]~reg0     ; clk      ;
+; N/A           ; None        ; -7.010 ns  ; price6       ; total[1]         ; clk      ;
+; N/A           ; None        ; -7.054 ns  ; price6       ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -7.074 ns  ; coin5        ; paid[3]~reg0     ; clk      ;
+; N/A           ; None        ; -7.089 ns  ; coin1        ; paid[0]~reg0     ; clk      ;
+; N/A           ; None        ; -7.112 ns  ; price1       ; total[1]         ; clk      ;
+; N/A           ; None        ; -7.118 ns  ; coin10       ; paid[2]~reg0     ; clk      ;
+; N/A           ; None        ; -7.159 ns  ; price3       ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -7.229 ns  ; coin10       ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -7.309 ns  ; coin10       ; paidtemp[1]      ; clk      ;
+; N/A           ; None        ; -7.340 ns  ; coin5        ; paidtemp[1]      ; clk      ;
+; N/A           ; None        ; -7.370 ns  ; coin5        ; paidtemp[0]      ; clk      ;
+; N/A           ; None        ; -7.385 ns  ; price5       ; total[1]         ; clk      ;
+; N/A           ; None        ; -7.427 ns  ; coin1        ; paidtemp[1]      ; clk      ;
+; N/A           ; None        ; -7.459 ns  ; coin1        ; paidtemp[0]      ; clk      ;
+; N/A           ; None        ; -7.499 ns  ; coin10       ; needed[0]~reg0   ; clk      ;
+; N/A           ; None        ; -7.510 ns  ; coin1        ; paid[2]~reg0     ; clk      ;
+; N/A           ; None        ; -7.517 ns  ; coin5        ; selling~reg0     ; clk      ;
+; N/A           ; None        ; -7.526 ns  ; price3       ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -7.528 ns  ; price5       ; total[0]         ; clk      ;
+; N/A           ; None        ; -7.642 ns  ; coin10       ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -7.643 ns  ; coin10       ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -7.669 ns  ; coin10       ; paidtemp[3]      ; clk      ;
+; N/A           ; None        ; -7.676 ns  ; coin5        ; paidtemp[2]      ; clk      ;
+; N/A           ; None        ; -7.782 ns  ; coin10       ; paid[1]~reg0     ; clk      ;
+; N/A           ; None        ; -7.793 ns  ; coin1        ; selling~reg0     ; clk      ;
+; N/A           ; None        ; -7.813 ns  ; coin5        ; paid[1]~reg0     ; clk      ;
+; N/A           ; None        ; -7.862 ns  ; coin1        ; current_state.s3 ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; price3       ; needed[0]~reg0   ; clk      ;
+; N/A           ; None        ; -7.900 ns  ; coin1        ; paid[1]~reg0     ; clk      ;
+; N/A           ; None        ; -7.938 ns  ; coin5        ; paidtemp[3]      ; clk      ;
+; N/A           ; None        ; -7.951 ns  ; price5       ; total[3]         ; clk      ;
+; N/A           ; None        ; -7.951 ns  ; coin10       ; paidtemp[2]      ; clk      ;
+; N/A           ; None        ; -8.009 ns  ; coin1        ; q[1]             ; clk      ;
+; N/A           ; None        ; -8.011 ns  ; coin1        ; q[2]             ; clk      ;
+; N/A           ; None        ; -8.011 ns  ; coin1        ; q[3]             ; clk      ;
+; N/A           ; None        ; -8.037 ns  ; coin1        ; current_state.s1 ; clk      ;
+; N/A           ; None        ; -8.047 ns  ; price5       ; total[2]         ; clk      ;
+; N/A           ; None        ; -8.140 ns  ; price3       ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -8.148 ns  ; price3       ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -8.151 ns  ; coin1        ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -8.179 ns  ; coin10       ; neededtemp[0]    ; clk      ;
+; N/A           ; None        ; -8.261 ns  ; coin10       ; current_state.s3 ; clk      ;
+; N/A           ; None        ; -8.283 ns  ; price6       ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -8.313 ns  ; coin1        ; paidtemp[2]      ; clk      ;
+; N/A           ; None        ; -8.357 ns  ; coin1        ; paid[3]~reg0     ; clk      ;
+; N/A           ; None        ; -8.380 ns  ; price6       ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -8.408 ns  ; coin10       ; q[1]             ; clk      ;
+; N/A           ; None        ; -8.410 ns  ; coin10       ; q[2]             ; clk      ;
+; N/A           ; None        ; -8.410 ns  ; coin10       ; q[3]             ; clk      ;
+; N/A           ; None        ; -8.443 ns  ; coin10       ; current_state.s1 ; clk      ;
+; N/A           ; None        ; -8.446 ns  ; coin1        ; q[0]             ; clk      ;
+; N/A           ; None        ; -8.496 ns  ; price5       ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -8.511 ns  ; price1       ; total[2]         ; clk      ;
+; N/A           ; None        ; -8.512 ns  ; price1       ; total[3]         ; clk      ;
+; N/A           ; None        ; -8.597 ns  ; price3       ; neededtemp[0]    ; clk      ;
+; N/A           ; None        ; -8.618 ns  ; coin1        ; current_state.sb ; clk      ;
+; N/A           ; None        ; -8.631 ns  ; coin5        ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -8.655 ns  ; coin5        ; needed[0]~reg0   ; clk      ;
+; N/A           ; None        ; -8.713 ns  ; coin1        ; needed[0]~reg0   ; clk      ;
+; N/A           ; None        ; -8.715 ns  ; price5       ; needed[0]~reg0   ; clk      ;
+; N/A           ; None        ; -8.738 ns  ; coin10       ; current_state.s0 ; clk      ;
+; N/A           ; None        ; -8.756 ns  ; price6       ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -8.790 ns  ; coin5        ; current_state.s3 ; clk      ;
+; N/A           ; None        ; -8.796 ns  ; coin10       ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -8.805 ns  ; price5       ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -8.811 ns  ; price1       ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -8.845 ns  ; coin10       ; q[0]             ; clk      ;
+; N/A           ; None        ; -8.851 ns  ; coin5        ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -8.922 ns  ; coin1        ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -8.927 ns  ; coin1        ; current_state.s0 ; clk      ;
+; N/A           ; None        ; -8.937 ns  ; coin5        ; q[1]             ; clk      ;
+; N/A           ; None        ; -8.939 ns  ; coin5        ; q[2]             ; clk      ;
+; N/A           ; None        ; -8.939 ns  ; coin5        ; q[3]             ; clk      ;
+; N/A           ; None        ; -8.975 ns  ; coin5        ; current_state.s1 ; clk      ;
+; N/A           ; None        ; -9.007 ns  ; coin5        ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -9.028 ns  ; coin10       ; current_state.sb ; clk      ;
+; N/A           ; None        ; -9.048 ns  ; price1       ; needed[3]~reg0   ; clk      ;
+; N/A           ; None        ; -9.076 ns  ; coin5        ; current_state.sb ; clk      ;
+; N/A           ; None        ; -9.084 ns  ; price5       ; needed[1]~reg0   ; clk      ;
+; N/A           ; None        ; -9.123 ns  ; price6       ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -9.178 ns  ; price1       ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -9.205 ns  ; coin10       ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -9.230 ns  ; coin1        ; paidtemp[3]      ; clk      ;
+; N/A           ; None        ; -9.239 ns  ; price1       ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -9.258 ns  ; end_select   ; total[0]         ; clk      ;
+; N/A           ; None        ; -9.274 ns  ; coin5        ; current_state.s0 ; clk      ;
+; N/A           ; None        ; -9.298 ns  ; coin1        ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -9.314 ns  ; coin5        ; neededtemp[0]    ; clk      ;
+; N/A           ; None        ; -9.372 ns  ; coin1        ; neededtemp[0]    ; clk      ;
+; N/A           ; None        ; -9.374 ns  ; coin5        ; q[0]             ; clk      ;
+; N/A           ; None        ; -9.412 ns  ; price5       ; neededtemp[0]    ; clk      ;
+; N/A           ; None        ; -9.451 ns  ; price5       ; neededtemp[1]    ; clk      ;
+; N/A           ; None        ; -9.461 ns  ; start_select ; current_state.sa ; clk      ;
+; N/A           ; None        ; -9.561 ns  ; coin5        ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -9.667 ns  ; end_select   ; total[1]         ; clk      ;
+; N/A           ; None        ; -9.676 ns  ; coin1        ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -9.682 ns  ; end_select   ; current_state.s3 ; clk      ;
+; N/A           ; None        ; -9.688 ns  ; end_select   ; total[2]         ; clk      ;
+; N/A           ; None        ; -9.688 ns  ; end_select   ; total[3]         ; clk      ;
+; N/A           ; None        ; -9.813 ns  ; coin1        ; needed[2]~reg0   ; clk      ;
+; N/A           ; None        ; -9.834 ns  ; price1       ; needed[0]~reg0   ; clk      ;
+; N/A           ; None        ; -10.012 ns ; price5       ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -10.016 ns ; coin10       ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -10.034 ns ; price5       ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -10.376 ns ; coin5        ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -10.468 ns ; price1       ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -10.531 ns ; price1       ; neededtemp[0]    ; clk      ;
+; N/A           ; None        ; -10.533 ns ; end_select   ; current_state.s0 ; clk      ;
+; N/A           ; None        ; -10.564 ns ; price1       ; neededtemp[3]    ; clk      ;
+; N/A           ; None        ; -10.781 ns ; coin5        ; neededtemp[2]    ; clk      ;
+; N/A           ; None        ; -11.033 ns ; coin1        ; neededtemp[2]    ; clk      ;
++---------------+-------------+------------+--------------+------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Tue Mar 18 18:16:28 2014
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off control -c control --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 117.62 MHz between source register "neededtemp[1]" and destination register "neededtemp[2]" (period= 8.502 ns)
+    Info: + Longest register to register delay is 8.241 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X19_Y4_N1; Fanout = 11; REG Node = 'neededtemp[1]'
+        Info: 2: + IC(0.559 ns) + CELL(0.590 ns) = 1.149 ns; Loc. = LC_X19_Y4_N5; Fanout = 7; COMB Node = 'LessThan0~0'
+        Info: 3: + IC(1.258 ns) + CELL(0.114 ns) = 2.521 ns; Loc. = LC_X19_Y5_N4; Fanout = 1; COMB Node = 'Add9~0'
+        Info: 4: + IC(1.227 ns) + CELL(0.114 ns) = 3.862 ns; Loc. = LC_X19_Y4_N8; Fanout = 2; COMB Node = 'neededtemp~50'
+        Info: 5: + IC(1.220 ns) + CELL(0.114 ns) = 5.196 ns; Loc. = LC_X18_Y7_N9; Fanout = 2; COMB Node = 'Selector1~0'
+        Info: 6: + IC(1.555 ns) + CELL(0.114 ns) = 6.865 ns; Loc. = LC_X20_Y6_N9; Fanout = 1; COMB Node = 'Selector1~1'
+        Info: 7: + IC(1.261 ns) + CELL(0.115 ns) = 8.241 ns; Loc. = LC_X19_Y4_N6; Fanout = 7; REG Node = 'neededtemp[2]'
+        Info: Total cell delay = 1.161 ns ( 14.09 % )
+        Info: Total interconnect delay = 7.080 ns ( 85.91 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.743 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_17; Fanout = 42; CLK Node = 'clk'
+            Info: 2: + IC(0.563 ns) + CELL(0.711 ns) = 2.743 ns; Loc. = LC_X19_Y4_N6; Fanout = 7; REG Node = 'neededtemp[2]'
+            Info: Total cell delay = 2.180 ns ( 79.48 % )
+            Info: Total interconnect delay = 0.563 ns ( 20.52 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.743 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_17; Fanout = 42; CLK Node = 'clk'
+            Info: 2: + IC(0.563 ns) + CELL(0.711 ns) = 2.743 ns; Loc. = LC_X19_Y4_N1; Fanout = 11; REG Node = 'neededtemp[1]'
+            Info: Total cell delay = 2.180 ns ( 79.48 % )
+            Info: Total interconnect delay = 0.563 ns ( 20.52 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Micro setup delay of destination is 0.037 ns
+Info: tsu for register "neededtemp[2]" (data pin = "coin1", clock pin = "clk") is 14.237 ns
+    Info: + Longest pin to register delay is 16.943 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_11; Fanout = 15; PIN Node = 'coin1'
+        Info: 2: + IC(7.605 ns) + CELL(0.590 ns) = 9.664 ns; Loc. = LC_X19_Y4_N4; Fanout = 1; COMB Node = 'LessThan1~3'
+        Info: 3: + IC(1.236 ns) + CELL(0.114 ns) = 11.014 ns; Loc. = LC_X18_Y7_N8; Fanout = 6; COMB Node = 'LessThan1~9'
+        Info: 4: + IC(1.258 ns) + CELL(0.292 ns) = 12.564 ns; Loc. = LC_X19_Y4_N8; Fanout = 2; COMB Node = 'neededtemp~50'
+        Info: 5: + IC(1.220 ns) + CELL(0.114 ns) = 13.898 ns; Loc. = LC_X18_Y7_N9; Fanout = 2; COMB Node = 'Selector1~0'
+        Info: 6: + IC(1.555 ns) + CELL(0.114 ns) = 15.567 ns; Loc. = LC_X20_Y6_N9; Fanout = 1; COMB Node = 'Selector1~1'
+        Info: 7: + IC(1.261 ns) + CELL(0.115 ns) = 16.943 ns; Loc. = LC_X19_Y4_N6; Fanout = 7; REG Node = 'neededtemp[2]'
+        Info: Total cell delay = 2.808 ns ( 16.57 % )
+        Info: Total interconnect delay = 14.135 ns ( 83.43 % )
+    Info: + Micro setup delay of destination is 0.037 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.743 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_17; Fanout = 42; CLK Node = 'clk'
+        Info: 2: + IC(0.563 ns) + CELL(0.711 ns) = 2.743 ns; Loc. = LC_X19_Y4_N6; Fanout = 7; REG Node = 'neededtemp[2]'
+        Info: Total cell delay = 2.180 ns ( 79.48 % )
+        Info: Total interconnect delay = 0.563 ns ( 20.52 % )
+Info: tco from clock "clk" to destination pin "needed[1]" through register "needed[1]~reg0" is 8.473 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.743 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_17; Fanout = 42; CLK Node = 'clk'
+        Info: 2: + IC(0.563 ns) + CELL(0.711 ns) = 2.743 ns; Loc. = LC_X19_Y4_N2; Fanout = 1; REG Node = 'needed[1]~reg0'
+        Info: Total cell delay = 2.180 ns ( 79.48 % )
+        Info: Total interconnect delay = 0.563 ns ( 20.52 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Longest register to pin delay is 5.506 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X19_Y4_N2; Fanout = 1; REG Node = 'needed[1]~reg0'
+        Info: 2: + IC(3.398 ns) + CELL(2.108 ns) = 5.506 ns; Loc. = PIN_130; Fanout = 0; PIN Node = 'needed[1]'
+        Info: Total cell delay = 2.108 ns ( 38.29 % )
+        Info: Total interconnect delay = 3.398 ns ( 61.71 % )
+Info: th for register "total[3]" (data pin = "price4", clock pin = "clk") is -2.285 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.782 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_17; Fanout = 42; CLK Node = 'clk'
+        Info: 2: + IC(0.602 ns) + CELL(0.711 ns) = 2.782 ns; Loc. = LC_X20_Y6_N1; Fanout = 2; REG Node = 'total[3]'
+        Info: Total cell delay = 2.180 ns ( 78.36 % )
+        Info: Total interconnect delay = 0.602 ns ( 21.64 % )
+    Info: + Micro hold delay of destination is 0.015 ns
+    Info: - Shortest pin to register delay is 5.082 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_16; Fanout = 2; PIN Node = 'price4'
+        Info: 2: + IC(2.006 ns) + CELL(0.292 ns) = 3.767 ns; Loc. = LC_X20_Y6_N2; Fanout = 2; COMB Node = 'Add2~0'
+        Info: 3: + IC(0.182 ns) + CELL(0.114 ns) = 4.063 ns; Loc. = LC_X20_Y6_N3; Fanout = 4; COMB Node = 'neededtemp~54'
+        Info: 4: + IC(0.412 ns) + CELL(0.607 ns) = 5.082 ns; Loc. = LC_X20_Y6_N1; Fanout = 2; REG Node = 'total[3]'
+        Info: Total cell delay = 2.482 ns ( 48.84 % )
+        Info: Total interconnect delay = 2.600 ns ( 51.16 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 155 megabytes
+    Info: Processing ended: Tue Mar 18 18:16:29 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
